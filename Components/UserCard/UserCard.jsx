@@ -1,14 +1,15 @@
-export default function UserCard() {
+import React from "react";
+
+const UserCard = ({ userData }) => {
   return (
     <div className="user-card">
-      <div>
-        <img alt="avatar" />
-      </div>
-      <div>
-        <h5> Name:</h5>
-
-        <p> Username: </p>
-      </div>
+      <img src={userData.avatar_url} alt="User Avatar" />
+      <h2>{userData.name}</h2>
+      <p>{userData.bio}</p>
+      <p>Followers: {userData.followers}</p>
+      <p>Following: {userData.following}</p>
     </div>
   );
-}
+};
+
+export default UserCard;

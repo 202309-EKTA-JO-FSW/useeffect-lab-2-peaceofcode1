@@ -1,11 +1,24 @@
-export default function Form() {
+import React, { useState } from "react";
+
+const Form = ({ setUsername }) => {
+  const [input, setInput] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUsername(input);
+  };
+
   return (
-    <form>
-      <h3>Search user Github</h3>
-      <div className="mb-3">
-        <label>User name</label>
-        <input type="text" className="form-control" placeholder="User Name" />
-      </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter GitHub Username"
+      />
+      <button type="submit">Search</button>
     </form>
   );
-}
+};
+
+export default Form;
